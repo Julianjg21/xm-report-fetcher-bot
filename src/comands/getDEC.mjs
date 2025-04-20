@@ -28,7 +28,7 @@ const getDEC = async (ctx) => {
         : "informe de Redespacho diario";
 
     // Send a response message with inline buttons for date selection
-    await ctx.reply(`▫️De qué fecha quieres que generemos tu ${typeFile}?`, {
+    await ctx.reply(`▫️Perfecto, ¿de qué día necesitas que preparemos tu ${typeFile}?`, {
       reply_markup: {
         inline_keyboard: [
           [
@@ -72,7 +72,7 @@ const setupButtonHandlers = (bot) => {
       if (!userState) {
         await ctx.answerCbQuery(); // Respond to action so button appears pressed
         return ctx.reply(
-          '🚫Por favor, primero selecciona  el documento a generar: /obtener_dDEC "Despacho Programado" o /obtener_rDEC "Redespacho Diario".'
+          '🚫Por favor, primero selecciona  el documento a generar: \n/obtener_dDEC "Despacho Programado" \n/obtener_rDEC "Redespacho Diario".'
         );
       }
 
@@ -112,7 +112,12 @@ const setupButtonHandlers = (bot) => {
           "Usa /start si necesitas usar nuestro menú de nuevo. Fue un gusto haberte ayudado.😎"
         );
       } catch (error) {
-        await ctx.reply("❌ Error al procesar el documento: " + error.message);
+        if (error.code === 'ENOENT') {
+          await ctx.reply(`❌ Informe no disponible. XM aún no ha publicado la información correspondiente al ${dateParts.day}/${dateParts.month}/${dateParts.year}. Te recomendamos intentarlo más tarde.
+`);
+        } else {
+          await ctx.reply("❌ Error al procesar el documento: " + error.message);
+        }
       }
 
       // Delete user state as operation has finished
@@ -134,7 +139,7 @@ const setupButtonHandlers = (bot) => {
       if (!userState) {
         await ctx.answerCbQuery();
         return ctx.reply(
-          '🚫Por favor, primero selecciona  el documento a generar: /obtener_dDEC "Despacho Programado" o /obtener_rDEC "Redespacho Diario".'
+          '🚫Por favor, primero selecciona  el documento a generar: \n/obtener_dDEC "Despacho Programado"  \n/obtener_rDEC "Redespacho Diario".'
         );
       }
 
@@ -203,7 +208,12 @@ const setupButtonHandlers = (bot) => {
           "Usa /start si necesitas usar nuestro menú de nuevo. Fue un gusto haberte ayudado.😎"
         );
       } catch (error) {
-        await ctx.reply("❌ Error al procesar el documento: " + error.message);
+        if (error.code === 'ENOENT') {
+          await ctx.reply(`❌ Informe no disponible. XM aún no ha publicado la información correspondiente al ${dateParts.day}/${dateParts.month}/${dateParts.year}. Te recomendamos intentarlo más tarde.
+`);
+        } else {
+          await ctx.reply("❌ Error al procesar el documento: " + error.message);
+        }
       }
 
       // Delete user state as operation has finished
