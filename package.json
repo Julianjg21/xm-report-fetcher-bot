@@ -13,7 +13,7 @@
   "author": "Julian Jiménez / julianjimenez2001@hotmail.com",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.7.7",
+    "axios": "^1.8.4",
     "dayjs": "^1.11.13",
     "dotenv": "^16.4.5",
     "telegraf": "^4.16.3"
