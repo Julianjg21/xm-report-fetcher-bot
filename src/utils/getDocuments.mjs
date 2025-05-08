@@ -39,7 +39,9 @@ export const getDocuments = async (
     );
 
     //Regular expression to extract matching data
-    const regex = /("ZIPA[^"]*")[,\d]*/gm;
+    const regex = /"ZIPAEMG[^"]*",[^\n\r]+/g;
+
+
     const extractedData = fileContent.match(regex) || [];
 
     //Document name
