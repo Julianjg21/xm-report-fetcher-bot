@@ -25,7 +25,7 @@ export const getDocuments = async (
     const {
       data: { url },
     } = await axios.get(
-      `https://app-portalxmcore01.azurewebsites.net/administracion-archivos/ficheros/descarga-archivo?ruta=M:/InformacionAgentes/Usuarios/Publico/${typeFile}/${folder}/${fileName}.TXT&nombreBlobContainer=storageportalxm`
+      `https://app-portalxmcore01.azurewebsites.net/administracion-archivos/ficheros/descarga-archivo?ruta=M:/InformacionAgentes/Usuarios/Publico/${typeFile}/${folder}/${fileName}.txt&nombreBlobContainer=storageportalxm`
     );
 
     //Download the file as buffer
