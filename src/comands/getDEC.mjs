@@ -113,7 +113,7 @@ const setupButtonHandlers = (bot) => {
         );
       } catch (error) {
         if (error.code === 'ENOENT') {
-          await ctx.reply(`❌ Informe no disponible. XM aún no ha publicado la información correspondiente al ${dateParts.day}/${dateParts.month}/${dateParts.year}. Te recomendamos intentarlo más tarde.
+          await ctx.reply(`❌ Informe no disponible. XM aún no ha publicado la información correspondiente al ${dateParts.day}/${dateParts.month}/${dateParts.year}. \nTe recomendamos verificar manualmente si existe el documento en www.xm.com.co o intentarlo más tarde.
 `);
         } else {
           await ctx.reply("❌ Error al procesar el documento: " + error.message);
@@ -209,7 +209,7 @@ const setupButtonHandlers = (bot) => {
         );
       } catch (error) {
         if (error.code === 'ENOENT') {
-          await ctx.reply(`❌ Informe no disponible. XM aún no ha publicado la información correspondiente al ${dateParts.day}/${dateParts.month}/${dateParts.year}. Te recomendamos intentarlo más tarde.
+          await ctx.reply(`❌ Informe no disponible. XM aún no ha publicado la información correspondiente al ${dateParts.day}/${dateParts.month}/${dateParts.year}. \nTe recomendamos verificar manualmente si existe el documento en www.xm.com.co o intentarlo más tarde.
 `);
         } else {
           await ctx.reply("❌ Error al procesar el documento: " + error.message);
